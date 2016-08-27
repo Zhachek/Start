@@ -1,0 +1,7 @@
+//  Основая сетка сайта
+
+.l-center {
+	max-width: 960px;
+	margin: 0 auto;
+	@extend %clr;
+}

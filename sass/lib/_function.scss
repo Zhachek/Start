@@ -1,9 +1,0 @@
-// px to rem
-@function px($px) {
-	@return $px / 16 +em;
-}
-
-// calc-percent
-@function cp($target, $container) {
-  @return ($target / $container) * 100%;
-}

@@ -1,8 +1,46 @@
+//  Примеси Sass
+
+/// Помощник для сброса внутреннего обтекания
+/// @author Николас Галлагер
+/// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+/// Помощник для определения размера
+/// @author Hugo Giraudel
+/// @param {Length} $width
+/// @param {Length} $height
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
 // Медиа запросы
-@mixin r($w) {
+@mixin media($w) {
 	@media only screen and (max-width: $w+'px'){
 		@content
 	}
+}
+
+/// медиа запросы
+$small: 320px;
+$large: 1024px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $small) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $small + 1) and (max-width: $large - 1) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $large) { @content; }
+  }
 }
 
 // Кнопка
@@ -41,4 +79,3 @@
 		font-style: normal;
 	}
 }
-
